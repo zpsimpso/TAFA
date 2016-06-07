@@ -36,6 +36,27 @@
 #' Buffalo National River, Arkansas, 1991-2001. Transactions of the
 #' American Society of Agricultural Engineers 47(2):407-417.
 #' 
+#' @example 
+#' #example dataset is from USGS station 07195430, total phosphorus data
+#' 
+#' IR59 <- read.csv("IR59_TP_2001-2009.csv", stringsAsFactors = FALSE)
+#' IR59$Date <- as.POSIXct(IR59$Date) #convert the date column to a datetime format
+#' 
+#' IR59_tafa<-tafa(IR59$Flow_cfs, IR59$TP_mgL, IR59$Date)
+#' #see the flow-adjustment process
+#' plot(IR59_tafa$lnC ~ IR59_tafa$lnQ)
+#' #add the fitted loess line
+#' j <- order(IR59_tafa$lnQ) #have to order x-values for base plot
+#' lines(IR59_tafa$lnQ[j], IR59_tafa$loess_fit$fitted[j], col="red", lwd=3)
+#' #observe the flow-adjusted concentrations over time
+#' plot(IR59_tafa$dates, IR59_tafa$FACs)
+#' abline(lm(IR59_tafa$FACs~IR59_tafa$dates), col="blue") #note the decrease
+#' #see percent change in TP over this period (% change per year)
+#' IR59_tafa$perc_slope
+#' #[1] -10.03825
+#' 
+
+
 
 
 
