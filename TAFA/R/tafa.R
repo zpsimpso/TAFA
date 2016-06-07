@@ -37,11 +37,8 @@
 #' American Society of Agricultural Engineers 47(2):407-417.
 #' 
 #' @example 
-#' #example dataset is from USGS station 07195430, total phosphorus data
-#' 
-#' IR59 <- read.csv("IR59_TP_2001-2009.csv", stringsAsFactors = FALSE)
+#' load("IR59_TP_2001-2009.rda") #example dataset is from USGS station 07195430, total phosphorus data
 #' IR59$Date <- as.POSIXct(IR59$Date) #convert the date column to a datetime format
-#' 
 #' IR59_tafa<-tafa(IR59$Flow_cfs, IR59$TP_mgL, IR59$Date)
 #' #see the flow-adjustment process
 #' plot(IR59_tafa$lnC ~ IR59_tafa$lnQ)
