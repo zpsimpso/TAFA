@@ -54,6 +54,7 @@ abline(lm(IR59_tafa$FACs~IR59_tafa$dates), col="blue") #note the decrease
 #see percent change in TP over this period (\% change per year)
 IR59_tafa$perc_slope
 #[1] -10.03825
+IR59_tafa$p_val #we can say the linear regression slope is significant
 }
 }
 \references{
